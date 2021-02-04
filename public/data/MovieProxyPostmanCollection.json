@@ -1,0 +1,665 @@
+{
+	"info": {
+		"_postman_id": "0f822ea9-14cc-4f06-a4b3-f82c86f05646",
+		"name": "MovieProxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Static",
+			"item": [
+				{
+					"name": "Get Menu",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ro",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/static/menu?=",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"static",
+								"menu"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "VOD",
+			"item": [
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/category",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Keyword's Assets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/asset/keyword/1701?page=1",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"asset",
+								"keyword",
+								"1701"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Videos Of Asset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/asset/516486/videos",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"asset",
+								"516486",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Asset details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/asset/36647",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"asset",
+								"36647"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Popular",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/popular",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"popular"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/search?q=the&page=1",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "the"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Discover",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filters\": {\n\t\t\"release_date.gte\": 2017,\n\t\t\"vote_average.lte\": 7,\n\t\t\"page\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/discover",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"discover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comments Of Asset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/get_comments/516486",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"get_comments",
+								"516486"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assetId\": \"516486\",\n\t\"comment\": \"This is a very good movie\",\n\t\"user\": \"Zsolt Bokor\"\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/add_comment",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"add_comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get cast",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/asset/36647/credits",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"asset",
+								"36647",
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upcoming",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/upcoming",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"upcoming"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Similar Assets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/asset/297762/similar",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"asset",
+								"297762",
+								"similar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get favorites",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "uuid",
+								"value": "u5MdDjpN5WO6yKPqFlJyZ626D672",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/favorites",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to favorites",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "uuid",
+								"value": "u5MdDjpN5WO6yKPqFlJyZ626D672",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assetId\": \"36647\",\n\t\"poster\": \"poster_of_asset\"\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/favorites",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from favorites",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "uuid",
+								"value": "u5MdDjpN5WO6yKPqFlJyZ626D672",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assetId\": \"36647\"\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/favorites",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Populars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/populars?page=1",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"populars"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/vod/credit/10814",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"vod",
+								"credit",
+								"10814"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": \"zsolt.bokor@3ss.tv\",\n\t\"password\" : \"my-password\"\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": \"zsolt.bokor@3ss.tv\",\n\t\"password\" : \"my-password\",\n\t\"fullName\": \"Zsolt Bokor\"\n}"
+						},
+						"url": {
+							"raw": "https://video-proxy.3rdy.tv/api/auth/signup",
+							"protocol": "https",
+							"host": [
+								"video-proxy",
+								"3rdy",
+								"tv"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
