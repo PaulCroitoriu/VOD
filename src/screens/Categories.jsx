@@ -21,7 +21,7 @@ const Categories = () => {
       <ul>
         {categories &&
           categories.map(genre => (
-            <li>
+            <li key={genre.id}>
               <Link to={"/movies/:category_id"}>{genre.name}</Link>
             </li>
           ))}

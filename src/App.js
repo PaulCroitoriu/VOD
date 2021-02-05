@@ -7,17 +7,20 @@ import Categories from "./screens/Categories"
 import MoviesByCategory from "./screens/MoviesByCategory"
 import AssetDetails from "./screens/AssetDetails"
 import Popular from "./screens/Popular"
+import { ItemProvider } from "./context/ItemContextProvider"
 
 const App = () => {
   return (
     <Router>
       <Container>
         <Header />
-        <Route path="/" exact component={Home} />
-        <Route path="/categories" component={Categories} />
-        <Route path="/movies/:category_id" component={MoviesByCategory} />
-        <Route path="/asset/:id" component={AssetDetails} />
-        <Route path="/popular" component={Popular} />
+        <ItemProvider>
+          <Route path="/" exact component={Home} />
+          <Route path="/categories" component={Categories} />
+          <Route path="/movies/:category_id" component={MoviesByCategory} />
+          <Route path="/asset/:id" component={AssetDetails} />
+          <Route path="/popular" component={Popular} />
+        </ItemProvider>
       </Container>
     </Router>
   )

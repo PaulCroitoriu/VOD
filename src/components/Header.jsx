@@ -26,6 +26,7 @@ const Logo = styled(Link)`
 
 const Menu = styled.div`
   display: flex;
+  float: right;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -58,6 +59,7 @@ const Hamburger = styled.div`
 
 const MenuLink = styled(Link)`
   padding: 1rem 2rem;
+  margin: 0;
   cursor: pointer;
   text-decoration: none;
   align-items: center;
@@ -96,10 +98,11 @@ const Header = () => {
         <span />
         <span />
       </Hamburger>
-      <Menu isOpen={isOpen}>
-        <MenuLink to={"/categories"}>Categories</MenuLink>
-        <MenuLink to={"/popular"}>Popular</MenuLink>
-      </Menu>
+      {menu.map(item => (
+        <Menu key={item.id} isOpen={isOpen}>
+          <MenuLink to={item.route}>{item.label}</MenuLink>
+        </Menu>
+      ))}
     </Nav>
   )
 }

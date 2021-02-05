@@ -1,6 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useContext } from "react"
+import { ItemContext } from "../context/ItemContextProvider"
 
 const Home = () => {
-  return <h1>Home page</h1>
+  const value = useContext(ItemContext)
+  return (
+    <div>
+      {console.log(value)}
+      <img src="" alt="" />
+      <div>
+        <h3>titlu</h3>
+      </div>
+    </div>
+  )
 }
 export default Home

@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from "react"
+import React, { useContext } from "react"
+import { ItemContext } from "../context/ItemContextProvider"
+import { Link } from "react-router-dom"
 
 const Popular = () => {
-  const [popular, setPopular] = useState([])
+  const [value] = useContext(ItemContext)
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://video-proxy.3rdy.tv/api/vod/popular"
-      )
-      const data = await response.json()
-      console.log(data)
-    }
-    fetchData()
-  }, [])
+  console.log(value)
   return (
     <div>
-      <h1>Popular assets</h1>
+      {value.map(movie => (
+        <div key={movie.id}>
+          <Link to={`/asset/${movie.id}`}>
+            <img
+              width={200}
+              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </Link>
+          <h3>{movie.title}</h3>
+          <p>{movie.overview}</p>
+        </div>
+      ))}
     </div>
   )
 }
