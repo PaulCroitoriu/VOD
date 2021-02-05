@@ -6,7 +6,7 @@ const AssetDetails = ({ match }) => {
 
   useEffect(() => {
     fetchData()
-  }, [match.params.id])
+  }, [])
 
   const fetchData = async () => {
     const response = await fetch(
@@ -20,7 +20,7 @@ const AssetDetails = ({ match }) => {
     setLoading(false)
   }
 
-  const { poster_path, title, overview, genre, release_date } = assetDetails
+  const { poster_path, title, overview, release_date, genres } = assetDetails
 
   return (
     <>
@@ -34,6 +34,20 @@ const AssetDetails = ({ match }) => {
               alt={title}
               src={`https://image.tmdb.org/t/p/original${poster_path}`}
             />
+          </div>
+          <div>
+            <h2>
+              {title} ({release_date.split("-")[0]})
+            </h2>
+            <p>{overview}</p>
+          </div>
+          <div>
+            <p>Genre: </p>
+            {genres.map(genre => (
+              <ul key={genre.id}>
+                <li>{genre.name}</li>
+              </ul>
+            ))}
           </div>
         </div>
       )}
