@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
@@ -72,6 +72,20 @@ const MenuLink = styled(Link)`
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [menu, setMenu] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        "https://video-proxy.3rdy.tv/api/static/menu?="
+      )
+      const { data } = await response.json()
+      setMenu(data)
+      console.log(data)
+    }
+    fetchData()
+  }, [])
+
   return (
     <Nav>
       <Logo to={"/"}>
