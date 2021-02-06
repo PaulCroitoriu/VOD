@@ -83,7 +83,6 @@ const Header = () => {
       )
       const { data } = await response.json()
       setMenu(data)
-      console.log(data)
     }
     fetchData()
   }, [])

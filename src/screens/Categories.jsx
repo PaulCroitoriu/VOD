@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import { CategoriesContext } from "../context/CategoriesContextProvider"
+import Loading from "../components/Loading"
 
 const Categories = () => {
-  const [categories, setCategories] = useState([])
+  const value = useContext(CategoriesContext)
+  console.log(value)
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://video-proxy.3rdy.tv/api/vod/category"
-      )
-      const data = await response.json()
-
-      console.log(data.data.genre)
-      setCategories(data.data.genres)
-    }
-    fetchData()
-  }, [])
   return (
     <div>
       <ul>
-        {categories &&
-          categories.map(genre => (
+        {!value.length ? (
+          <Loading />
+        ) : (
+          value.map(genre => (
             <li key={genre.id}>
-              <Link to={"/movies/:category_id"}>{genre.name}</Link>
+              <Link to={`/movies/${genre.id}`}>{genre.name}</Link>
             </li>
-          ))}
+          ))
+        )}
       </ul>
     </div>
   )

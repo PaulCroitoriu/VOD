@@ -8,6 +8,7 @@ import MoviesByCategory from "./screens/MoviesByCategory"
 import AssetDetails from "./screens/AssetDetails"
 import Popular from "./screens/Popular"
 import { ItemProvider } from "./context/ItemContextProvider"
+import { CategoriesProvider } from "./context/CategoriesContextProvider"
 
 const App = () => {
   return (
@@ -15,11 +16,13 @@ const App = () => {
       <Container>
         <Header />
         <ItemProvider>
-          <Route path="/" exact component={Home} />
-          <Route path="/categories" component={Categories} />
-          <Route path="/movies/:category_id" component={MoviesByCategory} />
-          <Route path="/asset/:id" component={AssetDetails} />
-          <Route path="/popular" component={Popular} />
+          <CategoriesProvider>
+            <Route path="/" exact component={Home} />
+            <Route path="/categories" component={Categories} />
+            <Route path="/movies/:category_id" component={MoviesByCategory} />
+            <Route path="/asset/:id" component={AssetDetails} />
+            <Route path="/popular" component={Popular} />
+          </CategoriesProvider>
         </ItemProvider>
       </Container>
     </Router>

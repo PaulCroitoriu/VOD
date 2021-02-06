@@ -1,9 +1,26 @@
-import React from "react"
+import React, { useContext } from "react"
+import { ItemContext } from "../context/ItemContextProvider"
+import Loading from "../components/Loading"
+import { CategoriesContext } from "../context/CategoriesContextProvider"
 
-const MoviesByCategory = () => {
+const MoviesByCategory = ({ match }) => {
+  const value = useContext(ItemContext)
+
   return (
     <div>
-      <h1>Movies By Category</h1>
+      {!value.length ? (
+        <Loading />
+      ) : (
+        value.map(movie => {
+          const movieIds = movie.genre_ids
+
+          return (
+            <div key={movie.id}>
+              <h3>{movie.title}</h3>
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }

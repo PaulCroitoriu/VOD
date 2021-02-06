@@ -11,14 +11,17 @@ export const ItemProvider = ({ children }) => {
         "https://video-proxy.3rdy.tv/api/vod/popular"
       )
 
-      const { data } = await response.json()
-      setpopularAssets(data)
+      const { data, success } = await response.json()
+
+      if (success) {
+        setpopularAssets(data)
+      }
     }
     fetchData()
   }, [])
 
   return (
-    <ItemContext.Provider value={[popularAssets]}>
+    <ItemContext.Provider value={popularAssets}>
       {children}
     </ItemContext.Provider>
   )

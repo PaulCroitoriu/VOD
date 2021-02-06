@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const AssetDetails = ({ match }) => {
   const [assetDetails, setAssetDetails] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://video-proxy.3rdy.tv/api/vod/asset/${match.params.id}`
+      )
+      const { data } = await response.json()
+
+      console.log(data)
+
+      setAssetDetails(data)
+      setLoading(false)
+    }
     fetchData()
-  }, [])
-
-  const fetchData = async () => {
-    const response = await fetch(
-      `https://video-proxy.3rdy.tv/api/vod/asset/${match.params.id}`
-    )
-    const { data } = await response.json()
-
-    console.log(data)
-
-    setAssetDetails(data)
-    setLoading(false)
-  }
+  }, [match.params.id])
 
   const { poster_path, title, overview, release_date, genres } = assetDetails
 
@@ -45,7 +45,9 @@ const AssetDetails = ({ match }) => {
             <p>Genre: </p>
             {genres.map(genre => (
               <ul key={genre.id}>
-                <li>{genre.name}</li>
+                <li>
+                  <Link to={`/movies/${genre.id}`}>{genre.name}</Link>
+                </li>
               </ul>
             ))}
           </div>
