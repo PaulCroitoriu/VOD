@@ -1,10 +1,18 @@
 import React from "react"
+import styled from "styled-components"
+import Loader from "react-loader-spinner"
+
+const LoaderWrapper = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+`
 
 const Loading = () => {
   return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
+    <LoaderWrapper>
+      <Loader type="Circles" color="#00BFFF" />
+    </LoaderWrapper>
   )
 }
 

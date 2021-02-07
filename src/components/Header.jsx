@@ -3,33 +3,31 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 const Nav = styled.div`
-  padding: 0 2rem;
+  padding: 0 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: #071013;
 `
 
 const Logo = styled(Link)`
   padding: 1rem 0;
   color: #2f3537;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.7rem;
   span {
-    font-weight: 100;
+    font-weight: 800;
     font-size: 1.3rem;
-    color: #d0f683;
+    color: #23b5d3;
   }
 `
 
 const Menu = styled.div`
   display: flex;
-  float: right;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 
   @media (max-width: 768px) {
     overflow: hidden;
@@ -47,7 +45,7 @@ const Hamburger = styled.div`
   span {
     height: 2px;
     width: 25px;
-    background-color: #d0f683;
+    background-color: #23b5d3;
     margin-bottom: 4px;
     border-radius: 5px;
   }
@@ -59,14 +57,13 @@ const Hamburger = styled.div`
 
 const MenuLink = styled(Link)`
   padding: 1rem 2rem;
-  margin: 0;
   cursor: pointer;
   text-decoration: none;
-  align-items: center;
-  color: #3a2822;
+  align-items: right;
+  color: #dfe0e2;
 
   &:hover {
-    color: #0c0d0e;
+    color: #a2aebb;
     transition: all 0.1s ease-out;
     font-size: 1.01rem;
   }

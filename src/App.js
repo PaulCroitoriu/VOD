@@ -9,29 +9,39 @@ import AssetDetails from "./screens/AssetDetails"
 import Popular from "./screens/Popular"
 import { ItemProvider } from "./context/ItemContextProvider"
 import { CategoriesProvider } from "./context/CategoriesContextProvider"
+import Footer from "./components/Footer"
 
 const App = () => {
   return (
     <Router>
       <Container>
         <Header />
-        <ItemProvider>
-          <CategoriesProvider>
-            <Route path="/" exact component={Home} />
-            <Route path="/categories" component={Categories} />
-            <Route path="/movies/:category_id" component={MoviesByCategory} />
-            <Route path="/asset/:id" component={AssetDetails} />
-            <Route path="/popular" component={Popular} />
-          </CategoriesProvider>
-        </ItemProvider>
+        <Main>
+          <ItemProvider>
+            <CategoriesProvider>
+              <Route path="/" exact component={Home} />
+              <Route path="/categories" component={Categories} />
+              <Route path="/movies/:category_id" component={MoviesByCategory} />
+              <Route path="/asset/:id" component={AssetDetails} />
+              <Route path="/popular" component={Popular} />
+            </CategoriesProvider>
+          </ItemProvider>
+        </Main>
+        <Footer />
       </Container>
     </Router>
   )
 }
 
+const Main = styled.div`
+  height: 67vh;
+  padding: 6%;
+  overflow: scroll;
+`
+
 const Container = styled.div`
-  background: #ddf7f7;
-  height: 100vh;
+  background-color: #2e2e3a;
+  color: #dfe0e2;
 `
 
 export default App

@@ -30,10 +30,10 @@ const Popular = () => {
             <div key={movie.id}>
               <MovieCard
                 linkTo={`/asset/${movie.id}`}
-                title={`${movie.title} (${movie.release_date.split("-")[0]})`}
+                title={`${movie.title}`}
+                releasedOn={movie.release_date.split("-")[0]}
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               />
-              <p>{movie.overview}</p>
             </div>
           ))}
         </div>
