@@ -4,14 +4,12 @@ import { Link } from "react-router-dom"
 
 const CardWrapper = styled.div`
   width: 200px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
   img {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
-      0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
-      0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+    box-shadow: 10px 3px 10px #1b1b1e;
     width: 200px;
-    border-radius: 3px;
+    border-radius: 9px;
   }
 `
 

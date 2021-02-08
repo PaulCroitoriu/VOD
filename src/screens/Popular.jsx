@@ -1,41 +1,44 @@
-import React, { useState, useEffect } from "react"
-// import { ItemContext } from "../context/ItemContextProvider"
+import React, { useContext } from "react"
 import MovieCard from "../components/MovieCard"
 import Loading from "../components/Loading"
+import Header from "../components/Header"
+import { ItemContext } from "../context/ItemContextProvider"
+import styled from "styled-components"
+
+const PopularGridContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  justify-items: center;
+  @media (max-width: 736px) {
+    grid-template-columns: auto auto auto;
+  }
+`
 
 const Popular = () => {
-  const [popularAssets, setPopularAssets] = useState([])
-  const [loading, setLoading] = useState(true)
+  const popularAssets = useContext(ItemContext)
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://video-proxy.3rdy.tv/api/vod/popular"
-      )
-      const { data } = await response.json()
-
-      setPopularAssets(data)
-      setLoading(false)
-    }
-    fetchData()
-  }, [])
+  console.log(popularAssets)
 
   return (
     <div>
-      {loading ? (
+      <Header title="Popular Now" />
+      {!popularAssets.length ? (
         <Loading />
       ) : (
         <div>
-          {popularAssets.map(movie => (
-            <div key={movie.id}>
-              <MovieCard
-                linkTo={`/asset/${movie.id}`}
-                title={`${movie.title}`}
-                releasedOn={movie.release_date.split("-")[0]}
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              />
-            </div>
-          ))}
+          <PopularGridContainer>
+            {popularAssets.map(movie => (
+              <div key={movie.id}>
+                <MovieCard
+                  linkTo={`/asset/${movie.id}`}
+                  title={`${movie.title}`}
+                  releasedOn={movie.release_date.split("-")[0]}
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                />
+              </div>
+            ))}
+          </PopularGridContainer>
         </div>
       )}
     </div>
