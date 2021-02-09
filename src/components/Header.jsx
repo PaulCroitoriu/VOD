@@ -3,8 +3,7 @@ import styled from "styled-components"
 
 const HeaderWrapper = styled.div`
   color: #fbfffe;
-  width: 100%;
-  padding: 20px;
+  padding: 0 0 30px 30px;
 `
 
 const Header = ({ title }) => {

@@ -15,11 +15,11 @@ const AssetGridContainer = styled.div`
   .item {
     grid-row-start: 1;
     grid-row-end: 3;
-    box-shadow: 1px 3px 27px 10px black;
     border-radius: 5px;
     img {
-      border-radius: 5px;
-      height: 100%;
+      box-shadow: 10px 9px 40px 16px black;
+      border-radius: 4px;
+      height: 360px;
     }
   }
 
@@ -61,7 +61,9 @@ const Genres = styled.div`
     cursor: pointer;
     color: #23b5d3;
     &:hover {
-      font-weight: 600;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #23b5d3;
+      transition: all 0.1s ease-out;
     }
   }
 `
@@ -71,7 +73,9 @@ const Cast = styled.div`
   padding-bottom: 10px;
 `
 
-const Container = styled.div``
+const Container = styled.div`
+  color: white;
+`
 
 const AssetDetails = ({ match }) => {
   const [assetDetails, setAssetDetails] = useState([])
@@ -114,7 +118,7 @@ const AssetDetails = ({ match }) => {
           linear-gradient(to left, transparent 20%, #2e2e3a),
           linear-gradient(to top, transparent 60%, #2e2e3a),
           linear-gradient(to bottom, transparent 40%, #2e2e3a),
-          url(https://image.tmdb.org/t/p/original${backdrop_path}) 0 0 / cover`,
+          url(https://image.tmdb.org/t/p/original${backdrop_path}) 0 0 / cover `,
           }}
         >
           <AssetGridContainer>

@@ -1,30 +1,22 @@
 import React, { useContext } from "react"
 import { ItemContext } from "../context/ItemContextProvider"
-import Loading from "../components/Loading"
+import Carousel from "../components/Carousel/Carousel"
+import styled from "styled-components"
+
+const HomePage = styled.div`
+  background: linear-gradient(to bottom, transparent 50%, #2e2e38),
+    linear-gradient(to top, transparent 50%, #2e2e38),
+    linear-gradient(to right, transparent 50%, #2e2e38),
+    linear-gradient(to left, transparent 50%, #2e2e38), #6e6e87;
+`
 
 const Home = () => {
   const value = useContext(ItemContext)
 
-  console.log(value)
-
   return (
-    <div>
-      {!value.length ? (
-        <Loading />
-      ) : (
-        value.slice(0, 5).map(movie => (
-          <div key={movie.id}>
-            <img
-              width={250}
-              height="auto"
-              alt={movie.title}
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-            />
-            <h1>{movie.title}</h1>
-          </div>
-        ))
-      )}
-    </div>
+    <HomePage>
+      <Carousel value={value} />
+    </HomePage>
   )
 }
 export default Home

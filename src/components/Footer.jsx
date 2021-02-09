@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 
-const FooterWrapper = styled.footer`
-  height: 100px;
+const FooterWrapper = styled.div`
   width: 100%;
-
-  position: relative;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  line-height: 100px;
   text-align: center;
-  padding-top: 30px;
   color: #23b5d3;
 `
 

@@ -10,6 +10,12 @@ const Container = styled.div`
   margin: 0;
 `
 
+const CategoriesGrid = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row-gap: 20px;
+`
+
 const MoviesByCategory = ({ match }) => {
   const value = useContext(ItemContext)
   const categories = useContext(CategoriesContext)
@@ -29,13 +35,12 @@ const MoviesByCategory = ({ match }) => {
                   )
               )}
         </div>
-        <div>
+        <CategoriesGrid>
           {!value.length ? (
             <Loading />
           ) : (
             value.map(movie => {
-              const movieId = movie.genre_ids
-              const idFind = movieId.find(
+              const idFind = movie.genre_ids.find(
                 x => x === Number(match.params.category_id)
               )
 
@@ -44,9 +49,8 @@ const MoviesByCategory = ({ match }) => {
                   <div key={movie.id}>
                     <MovieCard
                       linkTo={`/asset/${movie.id}`}
-                      title={`${movie.title} (${
-                        movie.release_date.split("-")[0]
-                      })`}
+                      title={movie.title}
+                      releasedOn={movie.release_date.split("-")[0]}
                       src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     />
                   </div>
@@ -54,7 +58,7 @@ const MoviesByCategory = ({ match }) => {
               )
             })
           )}
-        </div>
+        </CategoriesGrid>
       </Container>
     </>
   )

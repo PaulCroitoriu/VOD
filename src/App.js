@@ -34,13 +34,16 @@ const App = () => {
 }
 
 const Main = styled.div`
-  height: 67vh;
-  padding: 6%;
+  position: relative;
+  padding: 6rem;
+  height: 70%;
   overflow: scroll;
 `
-
 const Container = styled.div`
-  background-color: #2e2e3a;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: #2e2e38;
   color: #dfe0e2;
 `
 

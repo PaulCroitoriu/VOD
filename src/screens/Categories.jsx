@@ -7,8 +7,7 @@ import Header from "../components/Header"
 
 const GridWrapper = styled.div`
   display: grid;
-  grid-gap: 13px;
-
+  grid-gap: 20px;
   grid-template-columns: auto auto auto auto auto;
   padding: 10px;
 
@@ -23,7 +22,7 @@ const CardCategory = styled(Link)`
   background-color: #a491d3;
   color: #f5f2b8;
   text-decoration: none;
-  padding: 30px 20px;
+  padding: 20px 20px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 2px 2px 19px #111318;
