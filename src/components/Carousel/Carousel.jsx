@@ -14,11 +14,10 @@ const Carousel = ({ value }) => {
   const nextSlide = () => {
     setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1)
   }
+
   const prevSlide = () => {
     setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1)
   }
-
-  console.log(currentIndex)
 
   return (
     <>
@@ -35,14 +34,16 @@ const Carousel = ({ value }) => {
                   key={movie.id}
                 >
                   {i === currentIndex && (
-                    <Link to={`/asset/${movie.id}`}>
-                      <img
-                        className="image"
-                        width={440}
-                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                        alt={movie.title}
-                      />
-                    </Link>
+                    <>
+                      <Link to={`/asset/${movie.id}`}>
+                        <img
+                          className="image"
+                          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                          alt={movie.title}
+                        />
+                      </Link>
+                      <h3 className="title">{movie.title}</h3>
+                    </>
                   )}
                 </div>
               )
