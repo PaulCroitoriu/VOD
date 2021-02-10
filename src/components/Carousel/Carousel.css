@@ -1,15 +1,15 @@
-.container {
-  height: 100vh;
-}
-
 .slider {
-  position: relative;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .image {
   box-shadow: 10px 9px 40px 16px black;
+  border-radius: 4px;
+  top: 50%;
+  height: 560px;
+  width: auto;
 }
 
 .arrow-right {

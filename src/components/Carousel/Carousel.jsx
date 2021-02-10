@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Loading from "../Loading"
 import "./Carousel.css"
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi"
+import { Link } from "react-router-dom"
 
 const Carousel = ({ value }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -34,12 +35,14 @@ const Carousel = ({ value }) => {
                   key={movie.id}
                 >
                   {i === currentIndex && (
-                    <img
-                      className="image"
-                      width={440}
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                    />
+                    <Link to={`/asset/${movie.id}`}>
+                      <img
+                        className="image"
+                        width={440}
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        alt={movie.title}
+                      />
+                    </Link>
                   )}
                 </div>
               )
