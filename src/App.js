@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 import styled from "styled-components"
 import Home from "./screens/Home"
 import Header from "./components/Nav"
@@ -14,29 +14,24 @@ import Footer from "./components/Footer"
 
 const App = () => {
   return (
-    <Router>
-      <Container>
-        <Header />
-        <Main>
-          <PopularAssetsProvider>
-            <CategoriesProvider>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/categories" component={Categories} />
-                <Route
-                  path="/movies/:category_id"
-                  component={MoviesByCategory}
-                />
-                <Route path="/asset/:id" component={AssetDetails} />
-                <Route path="/popular" component={Popular} />
-                <Route component={NotFound} />
-              </Switch>
-            </CategoriesProvider>
-          </PopularAssetsProvider>
-        </Main>
-        <Footer />
-      </Container>
-    </Router>
+    <Container>
+      <Header />
+      <Main>
+        <PopularAssetsProvider>
+          <CategoriesProvider>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/categories" component={Categories} />
+              <Route path="/movies/:category_id" component={MoviesByCategory} />
+              <Route path="/asset/:id" component={AssetDetails} />
+              <Route path="/popular" component={Popular} />
+              <Route component={NotFound} />
+            </Switch>
+          </CategoriesProvider>
+        </PopularAssetsProvider>
+      </Main>
+      <Footer />
+    </Container>
   )
 }
 

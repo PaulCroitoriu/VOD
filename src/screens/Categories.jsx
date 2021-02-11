@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import Loading from "../components/Loading"
 import styled from "styled-components"
 import Header from "../components/Header"
-import { getCategories } from "../service/API"
+import { CategoriesContext } from "../context/CategoriesContextProvider"
 
 const GridWrapper = styled.div`
   display: grid;
@@ -19,40 +19,31 @@ const GridWrapper = styled.div`
   }
 `
 const CardCategory = styled(Link)`
-  background-color: #a491d3;
-  color: #f5f2b8;
+  background-color: transparent;
+  color: #23b5d3;
+  border: 2px solid #23b5d3;
   text-decoration: none;
-  padding: 20px 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 2px 2px 19px #111318;
   &:hover {
     cursor: pointer;
-    background-color: #f9dad0;
-    color: black;
+    background-color: white;
+    color: 23b5d3;
     font-weight: 600;
+    border: 2px solid white;
   }
 `
 
 const Categories = () => {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setCategories(await getCategories())
-      setLoading(false)
-    }
-    fetchData()
-  }, [])
+  const { categories, loading } = useContext(CategoriesContext)
 
   return (
     <>
       <Header title="Categories" />
-
       {!loading ? (
         <GridWrapper>
-          {console.log(categories)}
           {categories.map(category => (
             <CardCategory key={category.id} to={`/movies/${category.id}`}>
               {category.name}

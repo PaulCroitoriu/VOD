@@ -6,12 +6,12 @@ import { getAssetDetails } from "../service/API"
 import ModalPlayer from "../components/Modal/ModalPlayer"
 
 const AssetGridContainer = styled.div`
-  position: relative;
   display: grid;
   grid-template-columns: 250px auto;
   grid-template-rows: auto auto auto;
   grid-column-gap: 50px;
   grid-row-gap: 20px;
+  padding-bottom: 20px;
 
   .item {
     grid-row-start: 1;
@@ -114,7 +114,6 @@ const AssetDetails = ({ match }) => {
           }}
         >
           <AssetGridContainer>
-            {console.log(videos)}
             <div className="item">
               <img
                 width={250}

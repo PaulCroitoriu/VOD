@@ -11,11 +11,11 @@ const HomePage = styled.div`
 `
 
 const Home = () => {
-  const value = useContext(PopularContext)
+  const { popularAssets, loading } = useContext(PopularContext)
 
   return (
     <HomePage>
-      <Carousel value={value} />
+      <Carousel popularAssets={popularAssets} loading={loading} />
     </HomePage>
   )
 }

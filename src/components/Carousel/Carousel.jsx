@@ -4,13 +4,9 @@ import "./Carousel.css"
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi"
 import { Link } from "react-router-dom"
 
-const Carousel = ({ value }) => {
+const Carousel = ({ popularAssets, loading }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const length = 10
-
-  if (Array.isArray(value) && value.length <= 0) {
-    return null
-  }
 
   const nextSlide = () => {
     setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1)
@@ -22,11 +18,11 @@ const Carousel = ({ value }) => {
 
   return (
     <>
-      {Array.isArray(value) && value.length > 0 ? (
+      {!loading ? (
         <div className="slider">
           <BiLeftArrow className="arrow-left" onClick={prevSlide} />
           <BiRightArrow className="arrow-right" onClick={nextSlide} />
-          {value.slice(0, 10).map((movie, i) => {
+          {popularAssets.slice(0, 10).map((movie, i) => {
             return (
               <div
                 className={i === currentIndex ? "slide active" : "slide"}

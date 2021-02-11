@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from "react"
 import { getPopular } from "../service/API"
-import Loading from "../components/Loading"
 
 export const PopularContext = createContext()
 
@@ -18,13 +17,9 @@ export const PopularAssetsProvider = ({ children }) => {
 
   return (
     <>
-      {!loading ? (
-        <PopularContext.Provider value={popularAssets}>
-          {children}
-        </PopularContext.Provider>
-      ) : (
-        <Loading />
-      )}
+      <PopularContext.Provider value={{ popularAssets, loading }}>
+        {children}
+      </PopularContext.Provider>
     </>
   )
 }

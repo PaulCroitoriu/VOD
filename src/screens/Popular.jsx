@@ -28,16 +28,12 @@ const PopularGridContainer = styled.div`
 `
 
 const Popular = () => {
-  const popularAssets = useContext(PopularContext)
-
-  console.log(popularAssets)
+  const { popularAssets, loading } = useContext(PopularContext)
 
   return (
-    <div>
+    <>
       <Header title="Popular Now" />
-      {!popularAssets.length ? (
-        <Loading />
-      ) : (
+      {!loading ? (
         <div>
           <PopularGridContainer>
             {popularAssets.map(movie => (
@@ -52,8 +48,10 @@ const Popular = () => {
             ))}
           </PopularGridContainer>
         </div>
+      ) : (
+        <Loading />
       )}
-    </div>
+    </>
   )
 }
 

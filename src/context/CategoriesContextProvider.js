@@ -1,26 +1,25 @@
 import React, { useState, useEffect, createContext } from "react"
+import { getCategories } from "../service/API"
 
 export const CategoriesContext = createContext()
 
 export const CategoriesProvider = ({ children }) => {
   const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://video-proxy.3rdy.tv/api/vod/category"
-      )
-      const { data, success } = await response.json()
-      if (success) {
-        setCategories(data.genres)
-      }
+      setCategories(await getCategories())
+      setLoading(false)
     }
     fetchData()
   }, [])
 
   return (
-    <CategoriesContext.Provider value={categories}>
-      {children}
-    </CategoriesContext.Provider>
+    <>
+      <CategoriesContext.Provider value={{ categories, loading }}>
+        {children}
+      </CategoriesContext.Provider>
+    </>
   )
 }
