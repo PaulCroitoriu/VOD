@@ -11,7 +11,7 @@ const AssetGridContainer = styled.div`
   grid-template-rows: auto auto auto;
   grid-column-gap: 50px;
   grid-row-gap: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 
   .item {
     grid-row-start: 1;
