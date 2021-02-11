@@ -11,6 +11,7 @@ const Carousel = ({ value }) => {
   if (Array.isArray(value) && value.length <= 0) {
     return null
   }
+
   const nextSlide = () => {
     setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1)
   }

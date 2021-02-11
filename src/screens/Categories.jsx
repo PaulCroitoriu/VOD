@@ -1,9 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { CategoriesContext } from "../context/CategoriesContextProvider"
 import Loading from "../components/Loading"
 import styled from "styled-components"
 import Header from "../components/Header"
+import { getCategories } from "../service/API"
 
 const GridWrapper = styled.div`
   display: grid;
@@ -35,23 +36,32 @@ const CardCategory = styled(Link)`
 `
 
 const Categories = () => {
-  const value = useContext(CategoriesContext)
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setCategories(await getCategories())
+      setLoading(false)
+    }
+    fetchData()
+  }, [])
 
   return (
     <>
       <Header title="Categories" />
 
-      <GridWrapper>
-        {!value.length ? (
-          <Loading />
-        ) : (
-          value.map((genre, i) => (
-            <CardCategory key={genre.id} to={`/movies/${genre.id}`}>
-              {genre.name}
+      {!loading ? (
+        <GridWrapper>
+          {categories.map(category => (
+            <CardCategory key={category.id} to={`/movies/${category.id}`}>
+              {category.name}
             </CardCategory>
-          ))
-        )}
-      </GridWrapper>
+          ))}
+        </GridWrapper>
+      ) : (
+        <Loading />
+      )}
     </>
   )
 }

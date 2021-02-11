@@ -13,11 +13,17 @@ const PopularGridContainer = styled.div`
   );
 
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   grid-gap: 10px;
   justify-items: center;
-  @media (max-width: 736px) {
-    grid-template-columns: auto auto auto;
+  @media (max-width: 411px) {
+    grid-template-columns: auto;
+  }
+  @media (min-width: 411px) and (max-width: 736px) {
+    grid-template-columns: auto auto;
+  }
+  @media (min-width: 736px) and (max-width: 1014px) {
+    grid-template-columns: auto auto auto auto;
   }
 `
 
