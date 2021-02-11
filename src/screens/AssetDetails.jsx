@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Loading from "../components/Loading"
 import styled from "styled-components"
+import { getAssetDetails } from "../service/API"
 import ModalPlayer from "../components/Modal/ModalPlayer"
 
 const AssetGridContainer = styled.div`
@@ -83,14 +84,7 @@ const AssetDetails = ({ match }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `https://video-proxy.3rdy.tv/api/vod/asset/${match.params.id}`
-      )
-      const { data } = await response.json()
-
-      console.log(data)
-
-      setAssetDetails(data)
+      setAssetDetails(await getAssetDetails(match.params.id))
       setLoading(false)
     }
     fetchData()
@@ -109,9 +103,7 @@ const AssetDetails = ({ match }) => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
+      {!loading ? (
         <Container
           style={{
             background: `linear-gradient(to right, transparent 70%, #2e2e3a 99%),
@@ -122,6 +114,7 @@ const AssetDetails = ({ match }) => {
           }}
         >
           <AssetGridContainer>
+            {console.log(videos)}
             <div className="item">
               <img
                 width={250}
@@ -130,7 +123,11 @@ const AssetDetails = ({ match }) => {
               />
             </div>
             <div className="button-player">
-              <ModalPlayer videoKey={videos.results[0].key} />
+              <ModalPlayer
+                videoKey={
+                  videos.results.length > 0 ? videos.results[0].key : ""
+                }
+              />
             </div>
 
             <div className="title">
@@ -161,6 +158,8 @@ const AssetDetails = ({ match }) => {
             </CastBox>
           </AssetGridContainer>
         </Container>
+      ) : (
+        <Loading />
       )}
     </>
   )

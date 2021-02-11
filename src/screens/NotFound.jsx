@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Header from "../components/Header"
-import { ItemContext } from "../context/ItemContextProvider"
+import { PopularContext } from "../context/PopularContextProvider"
 import MovieCard from "../components/MovieCard"
 import styled from "styled-components"
 
@@ -10,7 +10,7 @@ const CardsWrapper = styled.div`
 `
 
 const NotFound = () => {
-  const value = useContext(ItemContext)
+  const value = useContext(PopularContext)
   console.log(value.length)
   return (
     <>

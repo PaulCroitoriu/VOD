@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { CategoriesContext } from "../context/CategoriesContextProvider"
 import Loading from "../components/Loading"
 import styled from "styled-components"
 import Header from "../components/Header"
@@ -53,6 +52,7 @@ const Categories = () => {
 
       {!loading ? (
         <GridWrapper>
+          {console.log(categories)}
           {categories.map(category => (
             <CardCategory key={category.id} to={`/movies/${category.id}`}>
               {category.name}

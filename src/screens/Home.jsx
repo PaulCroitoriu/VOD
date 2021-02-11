@@ -1,10 +1,9 @@
 import React, { useContext } from "react"
-import { ItemContext } from "../context/ItemContextProvider"
+import { PopularContext } from "../context/PopularContextProvider"
 import Carousel from "../components/Carousel/Carousel"
 import styled from "styled-components"
 
 const HomePage = styled.div`
-  height: 100%;
   background: linear-gradient(to bottom, transparent 50%, #2e2e38),
     linear-gradient(to top, transparent 50%, #2e2e38),
     linear-gradient(to right, transparent 50%, #2e2e38),
@@ -12,7 +11,7 @@ const HomePage = styled.div`
 `
 
 const Home = () => {
-  const value = useContext(ItemContext)
+  const value = useContext(PopularContext)
 
   return (
     <HomePage>

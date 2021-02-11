@@ -1,3 +1,7 @@
+.container {
+  background: green;
+}
+
 .slider {
   height: 100%;
   display: flex;

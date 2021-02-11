@@ -8,7 +8,7 @@ import MoviesByCategory from "./screens/MoviesByCategory"
 import AssetDetails from "./screens/AssetDetails"
 import Popular from "./screens/Popular"
 import NotFound from "./screens/NotFound"
-import { ItemProvider } from "./context/ItemContextProvider"
+import { PopularAssetsProvider } from "./context/PopularContextProvider"
 import { CategoriesProvider } from "./context/CategoriesContextProvider"
 import Footer from "./components/Footer"
 
@@ -18,7 +18,7 @@ const App = () => {
       <Container>
         <Header />
         <Main>
-          <ItemProvider>
+          <PopularAssetsProvider>
             <CategoriesProvider>
               <Switch>
                 <Route path="/" exact component={Home} />
@@ -32,7 +32,7 @@ const App = () => {
                 <Route component={NotFound} />
               </Switch>
             </CategoriesProvider>
-          </ItemProvider>
+          </PopularAssetsProvider>
         </Main>
         <Footer />
       </Container>

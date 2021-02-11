@@ -28,10 +28,12 @@ const CategoriesGrid = styled.div`
 
 const MoviesByCategory = ({ match }) => {
   const [assetsByGenres, setAssetsByGenres] = useState([])
+  const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const categories = useContext(CategoriesContext)
 
   const observer = useRef()
+
   const lastMovieRef = useCallback(node => {
     if (observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
@@ -44,39 +46,30 @@ const MoviesByCategory = ({ match }) => {
 
   useEffect(() => {
     const loadMovies = async () => {
-      const { data, success } = await getMoviesByCategory(
-        match.params.category_id,
-        page
-      )
-      if (success) {
-        setAssetsByGenres(prev => [...prev, ...data.results])
-      }
+      const { data } = await getMoviesByCategory(match.params.category_id, page)
+      setAssetsByGenres(prev => [...prev, ...data.results])
+      setLoading(false)
     }
+
     loadMovies()
   }, [page, match.params.category_id])
 
-  console.log(assetsByGenres)
-
   return (
     <>
-      <Container>
-        <div className="title">
-          {!categories.length
-            ? ""
-            : categories.map(
-                category =>
-                  category.id === Number(match.params.category_id) && (
-                    <div key={category.id}>
-                      <Header title={category.name} />
-                    </div>
-                  )
-              )}
-        </div>
-        <CategoriesGrid>
-          {!assetsByGenres.length ? (
-            <Loading />
-          ) : (
-            assetsByGenres.map((movie, index) => {
+      {!loading ? (
+        <Container>
+          <div className="title">
+            {categories.map(
+              category =>
+                category.id === Number(match.params.category_id) && (
+                  <div key={category.id}>
+                    <Header title={category.name} />
+                  </div>
+                )
+            )}
+          </div>
+          <CategoriesGrid>
+            {assetsByGenres.map((movie, index) => {
               const idFind = movie.genre_ids.find(
                 x => x === Number(match.params.category_id)
               )
@@ -103,10 +96,12 @@ const MoviesByCategory = ({ match }) => {
                   </div>
                 ))
               )
-            })
-          )}
-        </CategoriesGrid>
-      </Container>
+            })}
+          </CategoriesGrid>
+        </Container>
+      ) : (
+        <Loading />
+      )}
     </>
   )
 }

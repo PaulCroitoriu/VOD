@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import MovieCard from "../components/MovieCard"
 import Loading from "../components/Loading"
 import Header from "../components/Header"
-import { ItemContext } from "../context/ItemContextProvider"
+import { PopularContext } from "../context/PopularContextProvider"
 import styled from "styled-components"
 
 const PopularGridContainer = styled.div`
@@ -28,7 +28,7 @@ const PopularGridContainer = styled.div`
 `
 
 const Popular = () => {
-  const popularAssets = useContext(ItemContext)
+  const popularAssets = useContext(PopularContext)
 
   console.log(popularAssets)
 
