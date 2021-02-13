@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const Nav = styled.div`
   padding: 0 6rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   background-color: #071013;
@@ -25,6 +25,7 @@ const Logo = styled(Link)`
 `
 
 const Menu = styled.div`
+  margin-left: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,7 +88,7 @@ const Header = () => {
   return (
     <Nav>
       <Logo to={"/"}>
-        LOG<span>O</span>
+        V<span>O</span>D
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
