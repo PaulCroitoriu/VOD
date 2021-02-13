@@ -6,7 +6,7 @@ import { getMenu } from "../service/API"
 const Nav = styled.div`
   padding: 0 6rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   background-color: #071013;
@@ -14,23 +14,19 @@ const Nav = styled.div`
 
 const Logo = styled(Link)`
   padding: 1rem 0;
-  color: #2f3537;
+  color: white;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  font-family: "Monoton", cursive;
   span {
-    font-weight: 800;
     font-size: 1.3rem;
     color: #23b5d3;
   }
 `
 
 const Menu = styled.div`
-  margin-left: 90px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
   @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
@@ -51,7 +47,6 @@ const Hamburger = styled.div`
     margin-bottom: 4px;
     border-radius: 5px;
   }
-
   @media (max-width: 768px) {
     display: flex;
   }
@@ -61,9 +56,7 @@ const MenuLink = styled(Link)`
   padding: 1rem 2rem;
   cursor: pointer;
   text-decoration: none;
-  align-items: right;
   color: #dfe0e2;
-
   &:hover {
     color: #a2aebb;
     transition: all 0.1s ease-out;
