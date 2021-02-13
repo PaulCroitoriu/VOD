@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { getMenu } from "../service/API"
 
 const Nav = styled.div`
   padding: 0 6rem;
@@ -75,12 +76,8 @@ const Header = () => {
   const [menu, setMenu] = useState([])
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://video-proxy.3rdy.tv/api/static/menu?="
-      )
-      const { data } = await response.json()
-      setMenu(data)
+    const fetchData = async () => {
+      setMenu(await getMenu())
     }
     fetchData()
   }, [])

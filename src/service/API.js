@@ -1,3 +1,14 @@
+export const getMenu = async () => {
+  try {
+    const { data } = await (
+      await fetch("https://video-proxy.3rdy.tv/api/static/menu?=")
+    ).json()
+    return data
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 export const getMoviesByCategory = async (category_id, pageNumber) => {
   try {
     const data = await (
