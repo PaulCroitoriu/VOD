@@ -11,11 +11,11 @@ const PopularGridContainer = styled.div`
     rgba(46, 46, 56, 0.6),
     rgba(46, 46, 56, 0)
   );
-
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 10px;
   justify-items: center;
+
   @media (max-width: 411px) {
     grid-template-columns: auto;
   }

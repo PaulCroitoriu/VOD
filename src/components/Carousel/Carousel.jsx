@@ -25,7 +25,11 @@ const Carousel = ({ popularAssets, loading }) => {
           {popularAssets.slice(0, 10).map((movie, i) => {
             return (
               <div
-                className={i === currentIndex ? "slide active" : "slide"}
+                className={
+                  i === currentIndex || i === currentIndex + 1
+                    ? "slide active"
+                    : "slide"
+                }
                 key={movie.id}
               >
                 {i === currentIndex && (

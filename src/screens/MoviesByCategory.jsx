@@ -71,7 +71,7 @@ const MoviesByCategory = ({ match }) => {
           <CategoriesGrid>
             {assetsByGenres.map((movie, index) => {
               const idFind = movie.genre_ids.find(
-                x => x === Number(match.params.category_id)
+                id => id === Number(match.params.category_id)
               )
 
               return (

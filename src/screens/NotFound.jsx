@@ -6,34 +6,39 @@ import styled from "styled-components"
 
 const CardsWrapper = styled.div`
   display: float;
-  justify-content: space-between;
+  justify-content: center;
+`
+
+const Card = styled.div`
+  padding: 5px 40px;
 `
 
 const NotFound = () => {
-  const value = useContext(PopularContext)
-  console.log(value.length)
+  const { popularAssets, loading } = useContext(PopularContext)
+
   return (
     <>
       <Header title="Page Not Found" />
       <hr />
-      <p>Have a look at these movies</p>
+      <p>Have a look at these great movies instead. </p>
       <CardsWrapper>
-        {value.length !== 0 &&
-          value
+        {!loading &&
+          popularAssets
             .slice(1)
             .slice(-3)
             .map(movie => (
-              <MovieCard
-                key={movie.id}
-                title={movie.title}
-                releasedOn={movie.release_date.split("-")[0]}
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt={movie.title}
-                linkTo={`/asset/${movie.id}`}
-              />
+              <Card>
+                <MovieCard
+                  key={movie.id}
+                  title={movie.title}
+                  releasedOn={movie.release_date}
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  alt={movie.title}
+                  linkTo={`/asset/${movie.id}`}
+                />
+              </Card>
             ))}
       </CardsWrapper>
-      <div></div>
     </>
   )
 }
