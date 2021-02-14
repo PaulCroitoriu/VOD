@@ -16,35 +16,31 @@ const App = () => {
   return (
     <Container>
       <Header />
-      <Main>
-        <PopularAssetsProvider>
-          <CategoriesProvider>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/categories" component={Categories} />
-              <Route path="/movies/:category_id" component={MoviesByCategory} />
-              <Route path="/asset/:id" component={AssetDetails} />
-              <Route path="/popular" component={Popular} />
-              <Route component={NotFound} />
-            </Switch>
-          </CategoriesProvider>
-        </PopularAssetsProvider>
-      </Main>
+      <PopularAssetsProvider>
+        <CategoriesProvider>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/categories" component={Categories} />
+            <Route path="/movies/:category_id" component={MoviesByCategory} />
+            <Route path="/asset/:id" component={AssetDetails} />
+            <Route path="/popular" component={Popular} />
+            <Route component={NotFound} />
+          </Switch>
+        </CategoriesProvider>
+      </PopularAssetsProvider>
       <Footer />
     </Container>
   )
 }
 
-const Main = styled.div`
-  padding: 3rem 6rem;
-  overflow: scroll;
-`
 const Container = styled.div`
-  height: 100%;
+  height: 100vh;
   min-height: 100vh;
   width: 100vw;
-  position: relative;
-  background-color: #2e2e38;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: #dfe0e2;
 `
 

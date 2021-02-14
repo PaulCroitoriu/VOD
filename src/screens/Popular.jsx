@@ -5,15 +5,18 @@ import Header from "../components/Header"
 import { PopularContext } from "../context/PopularContextProvider"
 import styled from "styled-components"
 
+const Container = styled.div`
+  padding: 100px 0;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
 const PopularGridContainer = styled.div`
-  background-image: radial-gradient(
-    rgba(83, 83, 101, 1),
-    rgba(46, 46, 56, 0.6),
-    rgba(46, 46, 56, 0)
-  );
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 20px;
   justify-items: center;
 
   @media (max-width: 411px) {
@@ -31,10 +34,10 @@ const Popular = () => {
   const { popularAssets, loading } = useContext(PopularContext)
 
   return (
-    <>
-      <Header title="Popular Now" />
+    <Container>
       {!loading ? (
         <div>
+          <Header title="Popular Now" />
           <PopularGridContainer>
             {popularAssets.map(movie => (
               <div key={movie.id}>
@@ -51,7 +54,7 @@ const Popular = () => {
       ) : (
         <Loading />
       )}
-    </>
+    </Container>
   )
 }
 

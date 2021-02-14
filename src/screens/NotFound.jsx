@@ -4,6 +4,15 @@ import { PopularContext } from "../context/PopularContextProvider"
 import MovieCard from "../components/MovieCard"
 import styled from "styled-components"
 
+const Container = styled.div`
+  padding: 100px 0;
+  overflow: scroll;
+  height: 400px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
 const CardsWrapper = styled.div`
   display: float;
   justify-content: center;
@@ -17,9 +26,8 @@ const NotFound = () => {
   const { popularAssets, loading } = useContext(PopularContext)
 
   return (
-    <>
+    <Container>
       <Header title="Page Not Found" />
-      <hr />
       <p>Have a look at these great movies instead. </p>
       <CardsWrapper>
         {!loading &&
@@ -39,7 +47,7 @@ const NotFound = () => {
               </Card>
             ))}
       </CardsWrapper>
-    </>
+    </Container>
   )
 }
 export default NotFound

@@ -13,14 +13,18 @@ import styled from "styled-components"
 import { getMoviesByCategory } from "../service/API"
 
 const Container = styled.div`
-  margin: 0;
+  padding-top: 100px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const CategoriesGrid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-row-gap: 20px;
-  grid-column-gap: 10px;
+  grid-column-gap: 20px;
   @media (max-width: 760px) {
     grid-template-columns: auto auto;
   }
@@ -58,16 +62,12 @@ const MoviesByCategory = ({ match }) => {
     <>
       {!loading ? (
         <Container>
-          <div className="title">
-            {categories.map(
-              category =>
-                category.id === Number(match.params.category_id) && (
-                  <div key={category.id}>
-                    <Header title={category.name} />
-                  </div>
-                )
-            )}
-          </div>
+          {categories.map(
+            category =>
+              category.id === Number(match.params.category_id) && (
+                <Header key={category.id} title={category.name} />
+              )
+          )}
           <CategoriesGrid>
             {assetsByGenres.map((movie, index) => {
               const idFind = movie.genre_ids.find(

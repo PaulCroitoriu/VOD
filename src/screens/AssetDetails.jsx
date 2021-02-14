@@ -10,9 +10,7 @@ const AssetGridContainer = styled.div`
   grid-template-columns: 250px auto;
   grid-template-rows: auto auto auto;
   grid-column-gap: 50px;
-  grid-row-gap: 20px;
-  padding-bottom: 10px;
-
+  grid-row-gap: 10px;
   .item {
     grid-row-start: 1;
     grid-row-end: 3;
@@ -76,6 +74,8 @@ const Cast = styled.div`
 
 const Container = styled.div`
   color: white;
+  width: 80%;
+  height: 500px;
 `
 
 const AssetDetails = ({ match }) => {

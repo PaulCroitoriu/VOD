@@ -5,6 +5,10 @@ import styled from "styled-components"
 import Header from "../components/Header"
 import { CategoriesContext } from "../context/CategoriesContextProvider"
 
+const Container = styled.div`
+  height: 500px;
+`
+
 const GridWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
@@ -40,20 +44,22 @@ const Categories = () => {
   const { categories, loading } = useContext(CategoriesContext)
 
   return (
-    <>
-      <Header title="Categories" />
+    <Container>
       {!loading ? (
-        <GridWrapper>
-          {categories.map(category => (
-            <CardCategory key={category.id} to={`/movies/${category.id}`}>
-              {category.name}
-            </CardCategory>
-          ))}
-        </GridWrapper>
+        <>
+          <Header title="Categories" />
+          <GridWrapper>
+            {categories.map(category => (
+              <CardCategory key={category.id} to={`/movies/${category.id}`}>
+                {category.name}
+              </CardCategory>
+            ))}
+          </GridWrapper>
+        </>
       ) : (
         <Loading />
       )}
-    </>
+    </Container>
   )
 }
 

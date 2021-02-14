@@ -4,8 +4,10 @@ import { Link } from "react-router-dom"
 import { getMenu } from "../service/API"
 
 const Nav = styled.div`
-  padding: 0 6rem;
+  position: absolute;
+  top: 0px;
   display: flex;
+  width: 100vw;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -13,7 +15,7 @@ const Nav = styled.div`
 `
 
 const Logo = styled(Link)`
-  padding: 1rem 0;
+  padding: 1rem 5rem;
   color: white;
   text-decoration: none;
   font-size: 1.8rem;
@@ -38,6 +40,7 @@ const Menu = styled.div`
 
 const Hamburger = styled.div`
   display: none;
+  padding-right: 3rem;
   flex-direction: column;
   cursor: pointer;
   span {

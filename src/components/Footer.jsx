@@ -9,6 +9,7 @@ const FooterWrapper = styled.div`
   line-height: 100px;
   text-align: center;
   color: #23b5d3;
+  background: linear-gradient(to top, #2e2e38, #2e2e38 20%, transparent 60%);
 `
 
 const Footer = () => {
