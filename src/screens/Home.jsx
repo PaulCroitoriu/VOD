@@ -16,7 +16,7 @@ const HomePage = styled.div`
 const CarouselInner = styled.div`
   height: 100%;
   width: 100%;
-  box-shadow: 1px 20px 30px 4px black;
+  box-shadow: 1px 30px 60px 4px black;
   display: flex;
   border-radius: 5px;
   background-position: center;
@@ -73,7 +73,6 @@ const Home = () => {
             <div className="left" onClick={prevSlide}>
               <BiLeftArrow />
             </div>
-
             <Link
               className="center"
               to={`/asset/${popularAssets[currentIndex].id}`}
