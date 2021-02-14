@@ -25,16 +25,23 @@ const Logo = styled(Link)`
     color: #23b5d3;
   }
 `
-
 const Menu = styled.div`
   display: flex;
   align-items: center;
   @media (max-width: 768px) {
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-out;
+  }
+`
+
+const MenuWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
     width: 100%;
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
-    transition: max-height 0.3s ease-out;
   }
 `
 
@@ -63,7 +70,6 @@ const MenuLink = styled(Link)`
   &:hover {
     color: #a2aebb;
     transition: all 0.1s ease-out;
-    font-size: 1.01rem;
   }
 `
 
@@ -81,18 +87,20 @@ const Header = () => {
   return (
     <Nav>
       <Logo to={"/"}>
-        V<span>O</span>D
+        V<span>o </span> D
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
-      {menu.map(item => (
-        <Menu key={item.id} isOpen={isOpen}>
-          <MenuLink to={item.route}>{item.label}</MenuLink>
-        </Menu>
-      ))}
+      <MenuWrapper>
+        {menu.map(item => (
+          <Menu key={item.id} isOpen={isOpen}>
+            <MenuLink to={item.route}>{item.label}</MenuLink>
+          </Menu>
+        ))}
+      </MenuWrapper>
     </Nav>
   )
 }

@@ -12,6 +12,17 @@ import { PopularAssetsProvider } from "./context/PopularContextProvider"
 import { CategoriesProvider } from "./context/CategoriesContextProvider"
 import Footer from "./components/Footer"
 
+const Container = styled.div`
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #dfe0e2;
+`
+
 const App = () => {
   return (
     <Container>
@@ -32,16 +43,5 @@ const App = () => {
     </Container>
   )
 }
-
-const Container = styled.div`
-  height: 100vh;
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #dfe0e2;
-`
 
 export default App

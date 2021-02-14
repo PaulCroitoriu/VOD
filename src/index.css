@@ -2,6 +2,12 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #2e2e38;
+  background: linear-gradient(
+      to right,
+      #2e2e38,
+      rgba(87, 184, 255, 0.2),
+      #2e2e38
+    ),
+    #2e2e38;
   font-family: "Montserrat", sans-serif;
 }

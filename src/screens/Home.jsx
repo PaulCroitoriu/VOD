@@ -5,7 +5,7 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi"
 import { Link } from "react-router-dom"
 
 const HomePage = styled.div`
-  width: 70%;
+  width: 60%;
   height: 400px;
   text-align: center;
   .title {
@@ -22,8 +22,14 @@ const CarouselInner = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition-duration: 1.2s;
+  transition: ease-out;
+  transition-duration: 0.7s;
 
+  .center {
+    flex: 80%;
+  }
+
+  .right,
   .left {
     flex: 5%;
     height: 100%;
@@ -31,19 +37,10 @@ const CarouselInner = styled.div`
     display: grid;
     place-items: center;
     cursor: pointer;
-  }
-
-  .center {
-    flex: 80%;
-  }
-
-  .right {
-    flex: 5%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: grid;
-    place-items: center;
-    cursor: pointer;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      transition-duration: 0.2s;
+    }
   }
 `
 
@@ -81,7 +78,7 @@ const Home = () => {
               <BiRightArrow />
             </div>
           </CarouselInner>
-          <div class="title">{popularAssets[currentIndex].title}</div>
+          <div className="title">{popularAssets[currentIndex].title}</div>
         </HomePage>
       )}
     </>

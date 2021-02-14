@@ -73,9 +73,11 @@ const Cast = styled.div`
 `
 
 const Container = styled.div`
+  margin-top: 80px;
+  padding: 50px;
   color: white;
-  width: 80%;
-  height: 500px;
+  width: 90%;
+  height: auto;
 `
 
 const AssetDetails = ({ match }) => {
@@ -102,15 +104,23 @@ const AssetDetails = ({ match }) => {
   } = assetDetails
 
   return (
-    <>
+    <div
+      style={{
+        width: "100vw",
+        height: "100%",
+        backgroundColor: "#2e2e38",
+        display: "flex",
+        placeItems: "center",
+      }}
+    >
       {!loading ? (
         <Container
           style={{
             background: `linear-gradient(to right, transparent 70%, #2e2e3a 99%),
-          linear-gradient(to left, transparent 20%, #2e2e3a),
-          linear-gradient(to top, transparent 60%, #2e2e3a),
-          linear-gradient(to bottom, transparent 40%, #2e2e3a),
-          url(https://image.tmdb.org/t/p/original${backdrop_path}) 0 0 / cover `,
+            linear-gradient(to left, transparent 20%, #2e2e3a),
+            linear-gradient(to top, transparent 60%, #2e2e3a),
+            linear-gradient(to bottom, transparent 40%, #2e2e3a),
+            url(https://image.tmdb.org/t/p/original${backdrop_path}) 0 0 / cover `,
           }}
         >
           <AssetGridContainer>
@@ -160,7 +170,7 @@ const AssetDetails = ({ match }) => {
       ) : (
         <Loading />
       )}
-    </>
+    </div>
   )
 }
 
