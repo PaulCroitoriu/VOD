@@ -7,7 +7,10 @@ import ModalPlayer from "../components/Modal/ModalPlayer"
 
 const AssetGridContainer = styled.div`
   display: grid;
-  grid-template-columns: 250px auto;
+  padding: 20px 80px;
+  height: 540px;
+  overflow: scroll;
+  grid-template-columns: 255px auto;
   grid-template-rows: auto auto auto;
   grid-column-gap: 50px;
   grid-row-gap: 10px;
@@ -16,7 +19,7 @@ const AssetGridContainer = styled.div`
     grid-row-end: 3;
     border-radius: 5px;
     img {
-      box-shadow: 10px 9px 40px 16px black;
+      box-shadow: 20px 18px 40px 1px black;
       border-radius: 4px;
       height: 360px;
     }
@@ -74,10 +77,10 @@ const Cast = styled.div`
 
 const Container = styled.div`
   margin-top: 80px;
-  padding: 50px;
+  padding: 0;
   color: white;
-  width: 90%;
-  height: auto;
+  width: 100%;
+  height: 80%;
 `
 
 const AssetDetails = ({ match }) => {
@@ -116,9 +119,9 @@ const AssetDetails = ({ match }) => {
       {!loading ? (
         <Container
           style={{
-            background: `linear-gradient(to right, transparent 70%, #2e2e3a 99%),
-            linear-gradient(to left, transparent 20%, #2e2e3a),
-            linear-gradient(to top, transparent 60%, #2e2e3a),
+            background: `linear-gradient(to right, transparent 60%, #2e2e3a 99%),
+            linear-gradient(to left, transparent 5%, #2e2e3a),
+            linear-gradient(to top, transparent 40%, #2e2e3a),
             linear-gradient(to bottom, transparent 40%, #2e2e3a),
             url(https://image.tmdb.org/t/p/original${backdrop_path}) 0 0 / cover `,
           }}
