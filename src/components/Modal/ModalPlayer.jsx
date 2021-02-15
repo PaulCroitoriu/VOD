@@ -16,7 +16,7 @@ const ModalPlayer = ({ videoKey }) => {
       />
 
       <button className="btn-watch-trailer" onClick={() => setIsOpen(true)}>
-        &#9658; Whatch Trailer
+        &#9658; Play Trailer
       </button>
     </div>
   )
